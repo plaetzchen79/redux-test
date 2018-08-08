@@ -77,10 +77,11 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 Where do we update a real database or make a call to an HTTP-Server when reducers do not change data?
 Of course this could be done in a component before dispatching the action.
 
-`this.saveData(data) // POST request to server
+```ts
+this.saveData(data) // POST request to server
   .map(res => this.store.dispatch(action)
-  .subscribe()`
-
+  .subscribe()
+```
 For ngrx an operation like an HTTP call is a side effect.
 If the component should not care about this side effect we can use [ngrx/effects](https://github.com/ngrx/platform/blob/master/docs/effects/README.md).
 With ngrx/effects you can isolate this 'side effect' from the component.
