@@ -2,12 +2,12 @@
 A little project to test and set up a basic flux/redux test using ngrx.
 
 ## What is Flux/Redux.
-- Poblem
+### Problem
 In huge client projects it becomes hard to understand which component changes data and to keep
 other components which depend on the same data up to date with this chnaged data (snychronised).
 (indepedent views need to in sync).
 
-- Solution
+### Solution
 Fux is an architecture where data is changed in one place. No component changes data directly (e.g. with two-way binding).
   - Redux is an implementation of Flux
   - ngrx is the implementation of Redux for Angular
@@ -33,9 +33,9 @@ Fux is an architecture where data is changed in one place. No component changes 
 ### Store
   - Holds the states of application
   - acts like client-side db  (e.g. our list of messages in this project)
-  - like an BehavoirSUbject/ Observable in ngrx/store
+  - like an BehavoirSubject/ Observable in ngrx/store
 
-A little like an  an angular service. It needs an interface to define app state.
+A little like an an angular service. It needs an interface to define app state.
 You can `select` data or `dispatch` an new action.
 
 ### Actions
@@ -51,7 +51,7 @@ It is not changing its input paramters.  The type of the action is handled insid
 This projects sets a up this elements. The goal is to store a simple messgae queue for the application.
 For each Flux/ Redux element there is a folder.
 
-- The Message interface consits of a message and a log date (models/message.ts)
+- The Message interface consits of a *message* and a *log date* (models/message.ts)
 - The basic **store** is defined in store/message-store.ts
 - Some basic **actions** (Add / Clear) can be found in actions/message-actions.ts
 - The reducer to handle thes actions can be found in reducers/message-reducers.ts
@@ -72,6 +72,21 @@ Install, Press F12, see tab "Redux" in the
 
 ## Build
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+
+## Next step - where to update data in a real db?
+Where do we update a real database or make a call to an HTTP-Server when reducers do not change data?
+Of course this could be done in a component before dispatching the action.
+
+`this.saveData(data) // POST request to server
+  .map(res => this.store.dispatch(action)
+  .subscribe()`
+
+For ngrx an operation like an HTTP call is a side effect.
+If the component should not care about this side effect we can use [ngrx/effects](https://github.com/ngrx/platform/blob/master/docs/effects/README.md).
+With ngrx/effects you can isolate this 'side effect' from the component.
+
+But: using ngrx effects can lead to much more boilerplate code (with kind of strange syntax if you ask me).
+A good article can be found here: [ngrx and side effects- how and how not to](https://medium.com/@m3po22/stop-using-ngrx-effects-for-that-a6ccfe186399)
 
 ## Running unit tests
 Actually i do not care for testing here (shame on me).
