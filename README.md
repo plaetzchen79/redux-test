@@ -1,14 +1,14 @@
 # ReduxTest
 A little project to test and set up a basic flux/redux test using ngrx.
 
-## What is Flux/Redux.
+## What is Flux/Redux?
 ### Problem
 In huge client projects it becomes hard to understand which component changes data and to keep
-other components which depend on the same data up to date with this chnaged data (snychronised).
-(indepedent views need to in sync).
+other components which depend on the same data up to date with this changed data (snychronised).
+(indepedent views need to be in sync).
 
 ### Solution
-Fux is an architecture where data is changed in one place. No component changes data directly (e.g. with two-way binding).
+Flux is an architecture where data is changed in one place. No component changes data directly (e.g. with two-way binding).
   - Redux is an implementation of Flux
   - ngrx is the implementation of Redux for Angular
 
@@ -17,7 +17,7 @@ Fux is an architecture where data is changed in one place. No component changes 
 - better tests (function driven)
 - simple undo or redo implementation (really impressive)
 - predictable
-- good browse extensions / tools to inspect application state
+- good browser extensions / tools to inspect application state avaialable
 
 ## Cons of Flux/ Redux
 - more boilerplate code
@@ -25,9 +25,9 @@ Fux is an architecture where data is changed in one place. No component changes 
 
 ## When to use Flux/Redux
 - large SPA
-- different views deal with same type of data - and thteres no hieracial realationship
-- indepedent views need to in sync
-- data can be updated by multiple actors/ user
+- different views deal with same type of data - and there is no hieracial realationship
+- indepedent views need to be in sync
+- data can be updated by multiple actors/ users
 
 ## Architecture/ Elements of Flux/Redux
 ### Store
@@ -43,15 +43,15 @@ Indicate that something has happend in the app (event). Actions have a name (typ
 
 ### Reducers
 Function how the state changes in response to an action (kind of action / event handler).
-A Reucer does *not midify* state directly- it *always* returns a *new* state.
+A Reducer does *not modify* state directly- it *always* returns a *new* state.
 Therefore a `...` (spread operator) is used in the example.
 It is not changing its input paramters.  The type of the action is handled inside a `switch` statement.
 
 ## This project
 This projects sets a up this elements. The goal is to store a simple messgae queue for the application.
-For each Flux/ Redux element there is a folder.
+For each Flux/ Redux element there is a seperate folder.
 
-- The Message interface consits of a *message* and a *log date* (models/message.ts)
+- The Message interface consists of a *message* and a *log date* (models/message.ts)
 - The basic **store** is defined in store/message-store.ts
 - Some basic **actions** (Add / Clear) can be found in actions/message-actions.ts
 - The reducer to handle thes actions can be found in reducers/message-reducers.ts
@@ -68,7 +68,7 @@ Play with the actions.
 See the **states** in the console output.
 You should install the browser extensions to better see the states and for undo/ redo. 
 Look [chrome extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd).
-Install, Press F12, see tab "Redux" in the 
+Install, Press F12, see tab "Redux".
 
 ## Build
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
