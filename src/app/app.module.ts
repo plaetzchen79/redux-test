@@ -15,6 +15,7 @@ import {FormsModule} from '@angular/forms';
     BrowserModule,
     FormsModule,
     StoreModule.forRoot( messageStoreReducers),
+    StoreModule.forFeature('messages', messageStoreReducers),
     StoreDevtoolsModule.instrument({maxAge: 10})
   ],
   providers: [],

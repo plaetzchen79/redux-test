@@ -3,11 +3,14 @@
 <div *ngFor='let singleMessage of myMessages$ | async;  index as i'>
   {{i}}: {{singleMessage.logDate}} : {{singleMessage.message}}
 </div>
-
 <hr>
+<h3>Upper Case messages using a selector</h3>
+<div *ngFor='let singleUpperMessage of myUpperMessages$ | async;  index as i'>
+  {{i}}: {{singleUpperMessage}}
+</div>
 
 <h2>Add a message or clear all</h2>
-Type Message here: <input type="text" [(ngModel)]="textInput" />
+Type YOUR Message here: <input type="text" [(ngModel)]="textInput" />
 <button (click)="add()">Add message</button>
 <br><br>
 <button (click)="reset()">Reset / clear all messages</button>

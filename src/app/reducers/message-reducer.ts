@@ -1,6 +1,5 @@
-import { Message } from '../models/message';
 import * as message from '../actions/message-actions';
-import { createSelector, ActionReducerMap } from '@ngrx/store';
+import { ActionReducerMap } from '@ngrx/store';
 import { MessageStore, State } from '../stores/message-store';
 
 /**
@@ -65,28 +64,7 @@ export function messageReducer(state = initialState, action: message.Actions): S
   }
 }
 
-/* TODO: use selectors */
 
-/**
- * Shortcut to get messages of a state with ease
- * @param state
- */
-export const getMessages = (state: State) => state.messages;
 
-/**
- * Shortcut get the last message of a state with ease
- * @param state
- */
-export const getLastmessage = (state: State) => state.lastMessage;
-
-/**
- * Shortcut get the count of a state with ease
- * @param state
- */
-export const getCount = (state: State) => state.count;
-
-export const getAll = createSelector(getMessages,  (messages) => {
-  return messages;
-});
 
 

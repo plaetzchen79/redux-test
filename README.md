@@ -47,6 +47,10 @@ A Reducer does *not modify* state directly- it *always* returns a *new* state.
 Therefore a `...` (spread operator) is used in the example.
 It is not changing its input paramters.  The type of the action is handled inside a `switch` statement.
 
+### Selectors
+Selectors are shortcuts to *select* a state and get complex data from it.
+Seelctors can be compared to a SELECT satement of an SQL-Query.
+
 ## This project
 This projects sets a up this elements. The goal is to store a simple messgae queue for the application.
 For each Flux/ Redux element there is a seperate folder.
@@ -55,6 +59,7 @@ For each Flux/ Redux element there is a seperate folder.
 - The basic **store** is defined in store/message-store.ts
 - Some basic **actions** (Add / Clear) can be found in actions/message-actions.ts
 - The reducer to handle thes actions can be found in reducers/message-reducers.ts
+- Some selectors can be found in selectors/selectors.ts 
 
 The app.component holds a simple observable to listen to our messages using the `async` pipe.
 And of course theres a little gui to make the **actions** work for the users.

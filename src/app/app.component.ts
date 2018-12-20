@@ -5,6 +5,7 @@ import { Store } from '@ngrx/store';
 import * as message from './actions/message-actions';
 import * as messageReducers from './reducers/message-reducer';
 import { MessageStore } from './stores/message-store';
+import * as messageSelectors from './selectors/selectors';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +16,7 @@ export class AppComponent implements OnInit {
   title = 'app';
 
   myMessages$: Observable<any>;
+  myUpperMessages$: Observable<string[]>;
   textInput = '';
 
   /**
@@ -30,6 +32,8 @@ export class AppComponent implements OnInit {
    */
   ngOnInit() {
    this.myMessages$ = this.store.select(store => store.state.messages);
+
+   this.myUpperMessages$ = this.store.select(messageSelectors.getUpperMessages);
 
    // this.myCounts$ = this.store.select('count');
   }
