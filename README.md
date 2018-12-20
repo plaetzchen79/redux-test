@@ -59,7 +59,7 @@ For each Flux/ Redux element there is a seperate folder.
 - The basic **store** is defined in store/message-store.ts
 - Some basic **actions** (Add / Clear) can be found in actions/message-actions.ts
 - The reducer to handle thes actions can be found in reducers/message-reducers.ts
-- Some selectors can be found in selectors/selectors.ts 
+- Some **selectors** can be found in selectors/selectors.ts 
 
 The app.component holds a simple observable to listen to our messages using the `async` pipe.
 And of course theres a little gui to make the **actions** work for the users.
