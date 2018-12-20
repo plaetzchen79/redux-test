@@ -24,6 +24,10 @@ export class AppComponent implements OnInit {
   constructor(private store: Store<MessageStore>) {
   }
 
+  /**
+   * Default init -
+   * due to async pipe in template no subscribe / unsubscribe needed
+   */
   ngOnInit() {
    this.myMessages$ = this.store.select(store => store.state.messages);
 
@@ -31,7 +35,7 @@ export class AppComponent implements OnInit {
   }
 
   /**
-   * add a new message --> dispatch
+   * add a new message --> dispatch event
    */
   add() {
     const newMessage = <Message>{};
@@ -42,7 +46,7 @@ export class AppComponent implements OnInit {
   }
 
   /**
-   * Clear messages --> dispatch
+   * Clear messages --> dispatch event
    */
   reset() {
     this.store.dispatch(new message.ClearAction());

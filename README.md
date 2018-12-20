@@ -4,7 +4,7 @@ A little project to test and set up a basic flux/redux test using ngrx.
 ## What is Flux/Redux?
 ### Problem
 In huge client projects it becomes hard to understand which component changes data and to keep
-other components which depend on the same data up to date with this changed data (snychronised).
+other components which depend on the same data up to date with this changed data (synchronised).
 (indepedent views need to be in sync).
 
 ### Solution
