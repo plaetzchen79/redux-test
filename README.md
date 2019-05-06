@@ -1,5 +1,5 @@
 # ReduxTest
-A little project to test and set up a basic flux/redux test using ngrx.
+A little project to test and set up a basic flux/redux application using ngrx.
 
 ## What is Flux/Redux?
 ### Problem
@@ -52,7 +52,8 @@ Selectors are shortcuts to *select* a state and get complex data from it.
 Seelctors can be compared to a SELECT satement of an SQL-Query.
 
 ## This project
-This projects sets a up this elements. The goal is to store a simple messgae queue for the application.
+This projects sets a up these elements. 
+The goal is to store a simple *messgae queue* for the application and of course to display these messages in a component.
 For each Flux/ Redux element there is a seperate folder.
 
 - The Message interface consists of a *message* and a *log date* (models/message.ts)
@@ -65,7 +66,14 @@ The app.component holds a simple observable to listen to our messages using the 
 And of course theres a little gui to make the **actions** work for the users.
 
 **Overview**
-AppComponent -> dispatch(action) -> reducer handles action -> updates states -> AppComponent view gets updated
+
+```
+AppComponent
+  -> dispatch (action) 
+    -> reducer handles action 
+      -> updates states 
+        -> AppComponent view gets updated (async pipe)
+  ```
 
 ## How to start
 Just run `ng serve` to build the project.
@@ -78,7 +86,7 @@ Install, Press F12, see tab "Redux".
 ## Build
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Next step - where to update data in a real db?
+## Next step 1 - where to update data in a real db?
 Where do we update a real database or make a call to an HTTP-Server when reducers do not change data?
 Of course this could be done in a component before dispatching the action.
 
@@ -87,12 +95,16 @@ this.saveData(data) // POST request to server
   .map(res => this.store.dispatch(action)
   .subscribe()
 ```
-For ngrx an operation like an HTTP call is a side effect.
+For ngrx an operation like an HTTP call is a **side effect**.
 If the component should not care about this side effect we can use [ngrx/effects](https://github.com/ngrx/platform/blob/master/docs/effects/README.md).
 With ngrx/effects you can isolate this 'side effect' from the component.
 
 But: using ngrx effects can lead to much more boilerplate code (with kind of strange syntax if you ask me).
-A good article can be found here: [ngrx and side effects- how and how not to](https://medium.com/@m3po22/stop-using-ngrx-effects-for-that-a6ccfe186399)
+A good article can be found here:
+[ngrx and side effects- how and how not to](https://medium.com/@m3po22/stop-using-ngrx-effects-for-that-a6ccfe186399)
+
+## Next step 2 - reduce boilerplate code
+To reduce the amount of boilerplate code for bigger stores have a look at [ngrx/entity](https://ngrx.io/guide/entity).
 
 ## Running unit tests
 Actually i do not care for testing here (shame on me).
